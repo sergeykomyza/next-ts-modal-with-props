@@ -1,12 +1,11 @@
+'use client'
 
+import { IModalProps } from "@/types/Modal"
 
-interface ButtonProps{
-  variant?: string;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  children?: React.ReactNode;
-}
-export const Button = ({variant, onClick, children}: ButtonProps) => {
+export const Button: React.FC<IModalProps> = ( {onClickToggle, isOpen} ) => {
   return(
-    <button className={variant} onClick={onClick}>{children}</button>
+    <button onClick={onClickToggle}>
+      {!isOpen ? 'Open Modal' : 'Close Modal'}
+    </button>
   )
 }
